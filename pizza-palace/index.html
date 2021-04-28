@@ -9,6 +9,23 @@
   </head>
   <body>
     <div class="container">
+      <div class="customer-contact">
+        <form>
+          <input type="text" placeholder="First and last name" id="name">
+          <input type="text" placeholder="Phone number" id="phone">
+          <input type="text" placeholder="Email address" id="email">
+        </form>
+      </div>
+      <div class="order-settings">
+        <p>Service Method</p>
+        <input type="radio" name="service-method"> Delivery
+        <br>
+        <input type="radio" name="service-method"> Carryout
+        <p>Order Timing</p>
+        <input type="radio" name="order-timing"> Now
+        <br>
+        <input type="radio" name="order-timing"> Later
+      </div>
       <div class="pizza-maker">
         <select name="size" id="size">
           <option>Choose the size</option>
@@ -28,8 +45,8 @@
         <select name="veg" id="veg">
           <option>Choose the veg</option>
         </select>
+        <button id="submit">Add To Order</button>
       </div>
-      <button id="submit">Add To Order</button>
       <div class="confirm-order">
         <p>Does this look correct?</p>
         <p class="pizza-order"></p>
