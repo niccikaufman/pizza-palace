@@ -18,6 +18,14 @@ class Pizza {
   }
 }
 
+class Customer {
+  constructor(name, phoneNumber, email, orderOption) {
+    this.name = name;
+    this.phoneNumber = phoneNumber;
+    this.email = email;
+    this.orderOption = orderOption;
+  }
+}
 //front end logic
 
 //populate dropdown menus with pizza option arrays
@@ -68,5 +76,6 @@ $(document).ready(function() {
     let newPizza = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect);
     console.log(newPizza);
     clearDropdowns();
+    $(".confirm-order").show();
   })
 })
