@@ -19,11 +19,12 @@ class Pizza {
 }
 
 class Customer {
-  constructor(name, phoneNumber, email, orderOption) {
+  constructor(name, phoneNumber, email, serviceMethod, orderTiming) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.email = email;
-    this.orderOption = orderOption;
+    this.orderOption = serviceMethod;
+    this.orderTiming = orderTiming;
   }
 }
 //front end logic
@@ -31,27 +32,27 @@ class Customer {
 //populate dropdown menus with pizza option arrays
 $(document).ready(function() {
   for (i = 0; i < size.length; i++) {
-    let data = '<option>' + size[i] + '</option>'
+    let data = '<input type="radio" name="size"> ' + size[i]
     $("#size").append(data);
   }
   for (i = 0; i < crust.length; i++) {
-    let data = '<option>' + crust[i] + '</option>'
+    let data = '<input type="radio" name="crust"> ' + crust[i]
     $("#crust").append(data);
   }
   for (i = 0; i < cheese.length; i++) {
-    let data = '<option>' + cheese[i] + '</option>'
+    let data = '<input type="radio" name="cheese"> ' + cheese[i]
     $("#cheese").append(data);
   }
   for (i = 0; i < sauce.length; i++) {
-    let data = '<option>' + sauce[i] + '</option>'
+    let data = '<input type="radio" name="sauce"> ' + sauce[i]
     $("#sauce").append(data);
   }
   for (i = 0; i < meat.length; i++) {
-    let data = '<option>' + meat[i] + '</option>'
+    let data = '<input type="radio" name="meat"> ' + meat[i]
     $("#meat").append(data);
   }
   for (i = 0; i < veg.length; i++) {
-    let data = '<option>' + veg[i] + '</option>'
+    let data = '<input type="radio" name="veg"> ' + veg[i]
     $("#veg").append(data);
   }
 
@@ -65,7 +66,21 @@ $(document).ready(function() {
     $('#veg option:eq(0)').attr('selected','selected'); 
   }
 
-  $("button#submit").click(function(event) {
+  //after contact info is filled out
+  $("button#get-started").click(function(event) {
+    event.preventDefault();
+    let name = $("#name").val();
+    let phoneNumber = $("#phone").val();
+    let email = $("#email").val();
+    let orderOption = $("input.service-method").val();
+    let orderOption = $("input.service-method").val();
+    let newCustomer = new Customer(name,phoneNumber,email,orderOption,orderTiming);
+    console.log(newCustomer);
+    $(".pizza-maker").show();
+  }) 
+
+  //after pizza order is made
+  $("button#submit-order").click(function(event) {
     event.preventDefault();
     let sizeSelect = $("#size").val();
     let crustSelect = $("#crust").val();
@@ -77,5 +92,6 @@ $(document).ready(function() {
     console.log(newPizza);
     clearDropdowns();
     $(".confirm-order").show();
+    $(".order-settings").show();
   })
 })

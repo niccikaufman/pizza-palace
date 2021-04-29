@@ -9,46 +9,71 @@
   </head>
   <body>
     <div class="container">
-      <div class="customer-contact">
+      <section class="card-header">
+        <h3>Pizza Builder</h3>
+      </section>
+      <br>
+      <section class="customer-contact card row">
+        <div class="card-header" id="contact-card-header">Contact Information</div>
+        <br>
         <form>
           <input type="text" placeholder="First and last name" id="name">
+          <br>
           <input type="text" placeholder="Phone number" id="phone">
+          <br>
           <input type="text" placeholder="Email address" id="email">
+          <br>
         </form>
-      </div>
-      <div class="order-settings">
-        <p>Service Method</p>
-        <input type="radio" name="service-method"> Delivery
-        <br>
-        <input type="radio" name="service-method"> Carryout
-        <p>Order Timing</p>
-        <input type="radio" name="order-timing"> Now
-        <br>
-        <input type="radio" name="order-timing"> Later
-      </div>
+        <div class="order-settings">
+          <p class="order-card-header card-header">Service Method</p>
+          <input type="radio" name="service-method" class="service-method"> Delivery
+          <br>
+          <input type="radio" name="service-method" class="service-method"> Carryout
+          <br>
+          <br>
+          <p class="order-card-header card-header">Order Timing</p>
+          <input type="radio" name="order-timing" class="order-timing"> Now
+          <br>
+          <input type="radio" name="order-timing" class="order-timing"> Later
+        </div>
+        <button id="get-started">Create Your Pizza!</button>
+
+      </section>
       <div class="pizza-maker">
-        <select name="size" id="size">
-          <option>Choose the size</option>
-        </select>
-        <select name="crust" id="crust">
-          <option>Choose the crust</option>
-        </select>
-        <select name="cheese" id="cheese">
-          <option>Choose the cheese</option>
-        </select>
-        <select name="sauce" id="sauce">
-          <option>Choose the sauce</option>
-        </select>
-        <select name="meat" id="meat">
-          <option>Choose the meat</option>
-        </select>
-        <select name="veg" id="veg">
-          <option>Choose the veg</option>
-        </select>
-        <button id="submit">Add To Order</button>
+        <section class="size card">
+          <form name="size" id="size">
+            <h6 class="card-header">Choose the size</h6>
+          </form>
+        </section>
+        <section class="crust card">
+          <form name="crust" id="crust">
+            <h6 class="card-header">Choose the crust</h6>
+          </form>
+        </section>
+        <section class="cheese card">
+          <form name="cheese" id="cheese">
+            <h6 class="card-header">Choose the cheese</h6>
+          </form>
+        </section>
+        <section class="sauce card">
+          <form name="sauce" id="sauce">
+            <h6 class="card-header">Choose the sauce</h6>
+          </form>
+        </section>
+        <section class="toppings card">
+          <form name="meat" id="meat">
+            <h6 class="card-header">Choose the meat</h6>
+          </form>
+          <form name="veg" id="veg">
+            <h6 class="card-header">Choose the veg</h6>
+          </form>
+        </section>
+        <button id="submit-order">Add To Order</button>
       </div>
+
+      <br>
       <div class="confirm-order">
-        <p>Does this look correct?</p>
+        <h6>Does everything look correct?</h6>
         <p class="pizza-order"></p>
       </div>
     </div>
