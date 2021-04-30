@@ -5,16 +5,19 @@ let cheese = ["light", "normal", "extra", "double"];
 let sauce = ["tomato", "marinara", "bbq", "garlic parmesan", "alfredo", "ranch"];
 let meat = ["ham", "beef", "salami", "pepperoni", "italian sausage", "bacon"];
 let veg = ["diced tomato", "black olive", "mushroom", "onion", "pineapple", "jalapeno pepper", "spinach"];
-
+let cost = 0;
 
 class Pizza {
-  constructor(sizeSelect, crustSelect, cheeseSelect, sauceSelect, meatSelect, vegSelect) {
+  constructor(sizeSelect, crustSelect, cheeseSelect, sauceSelect, meatSelect, vegSelect, cost) {
     this.size = sizeSelect;
     this.crust = crustSelect;
     this.cheese = cheeseSelect;
     this.sauce = sauceSelect;
     this.meat = meatSelect;
     this.veg = vegSelect;
+    this.cost = cost;
+  }
+  determinePrice(){
   }
 }
 
@@ -26,13 +29,24 @@ class Customer {
     this.orderOption = serviceMethod;
     this.orderTiming = orderTiming;
   }
+  showContact() {
+    for (const property in this) {
+      let data = '<li class="contact-info"> ' + this[property] + "</li>"
+      $("#confirmed-contact").append(data);
+    }    
+  }
 }
+
+
+
 //front end logic
+
+let newCustomer;
 
 //populate dropdown menus with pizza option arrays
 $(document).ready(function() {
   for (i = 0; i < size.length; i++) {
-    let data = '<input type="radio" name="size"> ' + size[i]
+    let data = '<input type="radio" name="size"> ' + size[i];
     $("#size").append(data);
   }
   for (i = 0; i < crust.length; i++) {
@@ -73,10 +87,11 @@ $(document).ready(function() {
     let phoneNumber = $("#phone").val();
     let email = $("#email").val();
     let orderOption = $("input.service-method").val();
-    let orderOption = $("input.service-method").val();
+    let orderTiming = $("input.order-timing").val();
     let newCustomer = new Customer(name,phoneNumber,email,orderOption,orderTiming);
-    console.log(newCustomer);
     $(".pizza-maker").show();
+    $("form#contact").hide();
+    newCustomer.showContact();
   }) 
 
   //after pizza order is made
@@ -88,10 +103,12 @@ $(document).ready(function() {
     let sauceSelect = $("#sauce").val();
     let meatSelect = $("#meat").val();
     let vegSelect = $("#veg").val();
-    let newPizza = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect);
+    let newPizza = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect, cost);
     console.log(newPizza);
+    // newPizza.determinePrice(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect);
     clearDropdowns();
     $(".confirm-order").show();
     $(".order-settings").show();
   })
 })
+
