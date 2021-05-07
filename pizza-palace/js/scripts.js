@@ -15,11 +15,21 @@ class Pizza {
     this.sauce = sauceSelect;
     this.meat = meatSelect;
     this.veg = vegSelect;
-    // this.cost = cost;
+    this.cost = cost;
   }
-  // determinePrice(){
-  // }
+  determinePrice(){
+    if (this.size === "small") {
+      this.cost += 10;
+    } else if (this.size === "medium") {
+      this.cost += 12;
+    } else if (this.size === "large") {
+      this.cost += 15;
+    } else if (this.size === "x-large") {
+      this.cost += 17;
+    }
+  }
 }
+
 
 class Customer {
   constructor(name, phoneNumber, email, serviceMethod, orderTiming) {
@@ -104,9 +114,9 @@ $(document).ready(function() {
     let sauceSelect = $("input.sauce").val();
     let meatSelect = $("input.meat").val();
     let vegSelect = $("input.veg").val();
-    let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect);
+    let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
     console.log(pizza1);
-    // newPizza.determinePrice(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect);
+    pizza1.determinePrice();
     clearDropdowns();
     $(".confirm-order").show();
     $(".order-settings").show();
