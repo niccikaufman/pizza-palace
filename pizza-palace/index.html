@@ -30,15 +30,18 @@
         <ul id="confirmed-contact"></ul>
         <div class="order-settings">
           <p class="order-card-header card-header">Service Method</p>
-          <input type="radio" name="service-method" class="service-method" value="delivery"> Delivery
-          <br>
-          <input type="radio" name="service-method" class="service-method" value="carryout"> Carryout
+          <select id="service-method">
+            <option type="radio" name="service-method" class="service-method" value="delivery"> Delivery </option>
+            <option type="radio" name="service-method" class="service-method" value="carryout"> Carryout </option>
+          </select>
           <br>
           <br>
           <p class="order-card-header card-header">Order Timing</p>
-          <input type="radio" name="order-timing" class="order-timing" value="now"> Now
-          <br>
-          <input type="radio" name="order-timing" class="order-timing" value="later"> Later
+          <select id="order-timing">
+            <option type="radio" name="order-timing" class="order-timing" value="now"> Now </option>
+            <br>
+            <option type="radio" name="order-timing" class="order-timing" value="later"> Later </option>
+          </select>
         </div>
         <button id="get-started">Create Your Pizza!</button>
       </section>
@@ -50,6 +53,7 @@
             <input type="radio" name="size" value="large" class="size"> large
             <input type="radio" name="size" value="x-large" class="size"> X-large
           </form> -->
+          <p class="order-card-header card-header">1. Size and Crust</p>
           <select id="size">
             <option type="radio" value="small" name="size">Small</option>
             <option type="radio" value="medium" name="size">Medium</option>
@@ -60,12 +64,14 @@
             <option type="radio" value="brooklyn-style" name="crust">Brooklyn Style</option>
             <option type="radio" value="hand-tossed" name="crust">Hand-tossed</option>
           </select>
+          <p class="order-card-header card-header">2. Cheese</p>
           <select id="cheese">
             <option type="radio" value="light" name="cheese">Light</option>
             <option type="radio" value="normal" name="cheese">Normal</option>
             <option type="radio" value="extra" name="cheese">Extra</option>
             <option type="radio" value="double" name="cheese">Double</option>
           </select>
+          <p class="order-card-header card-header">3. Sauce</p>
           <select id="sauce">
             <option type="radio" value="tomato" name="sauce">Tomato</option>
             <option type="radio" value="marinara" name="sauce">Marinara</option>
@@ -74,6 +80,7 @@
             <option type="radio" value="alfredo" name="sauce">Alfredo</option>
             <option type="radio" value="ranch" name="sauce">Ranch</option>
           </select>
+          <p class="order-card-header card-header">4. Toppings</p>
           <select id="meat">
             <option type="checkbox" value="ham" name="meat">Ham</option>
             <option type="checkbox" value="beef" name="meat">Beef</option>
