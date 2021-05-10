@@ -18,21 +18,21 @@ class Pizza {
     this.cost = cost;
   }
   determinePrice(){
-    if (this.size === "small") {
+    if (this.size === "Small") {
       this.cost += 10;
-    } else if (this.size === "medium") {
+    } else if (this.size === "Medium") {
       this.cost += 12;
-    } else if (this.size === "large") {
+    } else if (this.size === "Large") {
       this.cost += 15;
-    } else if (this.size === "x-large") {
+    } else if (this.size === "X-large") {
       this.cost += 17;
     }
     console.log(`size price is ${this.cost}`)
-    if (this.cheese === "light") {
+    if (this.cheese === "Light") {
       this.cost -= 1;
-    } else if (this.cheese === "extra") {
+    } else if (this.cheese === "Extra") {
       this.cost += 2;
-    } else if (this.cheese === "double") {
+    } else if (this.cheese === "Double") {
       this.cost += 4;
     }
     console.log(`cheese and size price is ${this.cost}`)
@@ -94,14 +94,14 @@ $(document).ready(function() {
   // }
 
   //returns dropdown menus to default option
-  // function clearDropdowns() {
-  //   $('#size option:eq(0)').attr('selected','selected');
-  //   $('#crust option:eq(0)').attr('selected','selected'); 
-  //   $('#cheese option:eq(0)').attr('selected','selected'); 
-  //   $('#sauce option:eq(0)').attr('selected','selected'); 
-  //   $('#meat option:eq(0)').attr('selected','selected'); 
-  //   $('#veg option:eq(0)').attr('selected','selected'); 
-  // }
+  function clearOptions() {
+    $('#size option:eq(0)').attr('selected','selected');
+    $('#crust option:eq(0)').attr('selected','selected'); 
+    $('#cheese option:eq(0)').attr('selected','selected'); 
+    $('#sauce option:eq(0)').attr('selected','selected'); 
+    $('#meat option:eq(0)').attr('selected','selected'); 
+    $('#veg option:eq(0)').attr('selected','selected'); 
+  }
 
   //after contact info is filled out
   $("button#get-started").click(function(event) {
@@ -109,8 +109,8 @@ $(document).ready(function() {
     let name = $("#name").val();
     let phoneNumber = $("#phone").val();
     let email = $("#email").val();
-    let orderOption = $("#service-method :selected").val();
-    let orderTiming = $("#order-timing :selected").val();
+    let orderOption = $("#service-method :selected").text();
+    let orderTiming = $("#order-timing :selected").text();
     let newCustomer = new Customer(name,phoneNumber,email,orderOption,orderTiming);
     $(".pizza-maker").show();
     $("form#contact").hide();
@@ -121,15 +121,16 @@ $(document).ready(function() {
   //after pizza order is made
   $("button#submit-order").click(function(event) {
     event.preventDefault();
-    let sizeSelect = $("#size :selected").val();
-    let crustSelect = $("#crust :selected").val();
-    let cheeseSelect = $("#cheese :selected").val();
-    let sauceSelect = $("#sauce :selected").val();
-    let meatSelect = $("#meat :selected").val();
-    let vegSelect = $("#veg :selected").val();
+    let sizeSelect = $("#size :selected").text();
+    let crustSelect = $("#crust :selected").text();
+    let cheeseSelect = $("#cheese :selected").text();
+    let sauceSelect = $("#sauce :selected").text();
+    let meatSelect = $("#meat :selected").text();
+    let vegSelect = $("#veg :selected").text();
     let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
     console.log(pizza1);
-    // pizza1.determinePrice();
+    clearOptions();
+    pizza1.determinePrice();
     $(".confirm-order").show();
     $(".order-settings").show();
   })
