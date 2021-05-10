@@ -104,7 +104,7 @@ $(document).ready(function() {
     clearOptions();
     pizza1.determinePrice();
     pizza1.finalCost();
-    $(".confirm-order").show();
+    $(".pizza-order").show();
     $(".order-settings").show();
   })
 })
