@@ -8,37 +8,33 @@
 let cost = 0;
 
 class Pizza {
-  constructor(sizeSelect, crustSelect, cheeseSelect, sauceSelect, meatSelect, vegSelect, cost) {
+  constructor(sizeSelect, crustSelect, cheeseSelect, sauceSelect, meatSelect, vegSelect, subtotal) {
     this.size = sizeSelect;
     this.crust = crustSelect;
     this.cheese = cheeseSelect;
     this.sauce = sauceSelect;
     this.meat = meatSelect;
     this.veg = vegSelect;
-    this.cost = cost;
+    this.subtotal = subtotal;
   }
   determinePrice(){
     if (this.size === "Small") {
-      this.cost += 10;
+      this.subtotal += 10;
     } else if (this.size === "Medium") {
-      this.cost += 12;
+      this.subtotal += 12;
     } else if (this.size === "Large") {
-      this.cost += 15;
+      this.subtotal += 15;
     } else if (this.size === "X-large") {
-      this.cost += 17;
+      this.subtotal += 17;
     }
     if (this.cheese === "Light") {
-      this.cost -= 1;
+      this.subtotal -= 1;
     } else if (this.cheese === "Extra") {
-      this.cost += 2;
+      this.subtotal += 2;
     } else if (this.cheese === "Double") {
-      this.cost += 4;
+      this.subtotal += 4;
     }
-  }
-  getSubtotal() {
-    let costData = 'Your Subtotal is: $' + this.cost + '<br>';
-    $(".pizza-order").append(costData);
-  }   
+  }  
   showOrder() {
     for (const property in this) {
       let data = '<li> ' + this[property] + "</li>"
@@ -70,8 +66,8 @@ let pizzaOrder = [];
 let newCustomer;
 
 function getFinalTotal() {
-  const pizzaTotal = pizzaOrder.reduce((prev, cur) => prev + cur.cost, 0);
-  $(".pizza-order").append('Your Total is: $' + pizzaTotal);
+  cost = pizzaOrder.reduce((prev, cur) => prev + cur.subtotal, 0);
+  $(".pizza-order").append('Your Total is: $' + cost);
 }
 
 $(document).ready(function() {
@@ -113,7 +109,6 @@ $(document).ready(function() {
     console.log(pizzaOrder);
     clearOptions();
     pizza1.determinePrice();
-    pizza1.getSubtotal();
     pizza1.showOrder();
     $(".pizza-maker").hide();
     $(".pizza-order").show();
