@@ -123,10 +123,10 @@ $(document).ready(function() {
     event.preventDefault();
     let sizeSelect = $("#size :selected").val();
     let crustSelect = $("#crust :selected").val();
-    let cheeseSelect = $("input.cheese").val();
-    let sauceSelect = $("input.sauce").val();
-    let meatSelect = $("input.meat").val();
-    let vegSelect = $("input.veg").val();
+    let cheeseSelect = $("#cheese :selected").val();
+    let sauceSelect = $("#sauce :selected").val();
+    let meatSelect = $("#meat :selected").val();
+    let vegSelect = $("#veg :selected").val();
     let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
     console.log(pizza1);
     // pizza1.determinePrice();
