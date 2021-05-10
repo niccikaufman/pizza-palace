@@ -78,7 +78,7 @@ $(document).ready(function() {
   }
 
   //after contact info is filled out
-  $("button#get-started").click(function(event) {
+  $("button.get-started").click(function(event) {
     event.preventDefault();
     let name = $("#name").val();
     let phoneNumber = $("#phone").val();
@@ -104,6 +104,7 @@ $(document).ready(function() {
     clearOptions();
     pizza1.determinePrice();
     pizza1.finalCost();
+    $(".pizza-maker").hide();
     $(".pizza-order").show();
     $(".order-settings").show();
   })
