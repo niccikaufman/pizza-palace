@@ -36,9 +36,15 @@ class Pizza {
     }
   }
   getSubtotal() {
-    let data = 'Your Subtotal is: $' + this.cost + '<br>';
-    $(".pizza-order").append(data);
+    let costData = 'Your Subtotal is: $' + this.cost + '<br>';
+    $(".pizza-order").append(costData);
   }   
+  showOrder() {
+    for (const property in this) {
+      let data = '<li> ' + this[property] + "</li>"
+      $(".pizza-order").append(data);
+    } 
+  }
 }
 
 
@@ -58,16 +64,15 @@ class Customer {
     }    
   }
 }
+//front end logic
+
 let pizzaOrder = [];
+let newCustomer;
 
 function getFinalTotal() {
   const pizzaTotal = pizzaOrder.reduce((prev, cur) => prev + cur.cost, 0);
   $(".pizza-order").append('Your Total is: $' + pizzaTotal);
 }
-
-//front end logic
-
-let newCustomer;
 
 $(document).ready(function() {
   //returns dropdown menus to default option
@@ -109,6 +114,7 @@ $(document).ready(function() {
     clearOptions();
     pizza1.determinePrice();
     pizza1.getSubtotal();
+    pizza1.showOrder();
     $(".pizza-maker").hide();
     $(".pizza-order").show();
     $(".order-settings").show();
@@ -117,5 +123,7 @@ $(document).ready(function() {
     event.preventDefault();
     getFinalTotal();
   })
+  $("button#create-another").click(function(event) {
+    $(".pizza-order").hide();
+  })
 })
-
