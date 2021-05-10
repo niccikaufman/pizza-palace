@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+}
+.card-header {
+  text-align: justify-left;
+  font-weight: bolder;
+}
+#contact-card-header,
+.order-card-header  {
+  background-color: dodgerblue;
+  color: whitesmoke;
+}
+
+.order-settings {
+  float: left;
+}
+
+.pizza-order {
+  display: none;
+}
+
+#size,
+#crust,
+#cheese,
+#sauce,
+#meat,
+#veg {
+  display: flexbox;
+  flex-wrap: wrap;
+  height: 10vh;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+p {
+  color: crimson;
+  text-decoration: underline;
+}
+
+button {
+  background-color: red;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+.customer-contact,
+.order-settings {
+  float: right;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  text-align: start;
+  background-color: white;
+}
