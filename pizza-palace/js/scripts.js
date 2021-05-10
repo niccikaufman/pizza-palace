@@ -39,9 +39,6 @@ class Pizza {
     let data = 'Your Subtotal is: $' + this.cost + '<br>';
     $(".pizza-order").append(data);
   }   
-  getFinalTotal() {
-
-  }
 }
 
 
@@ -61,13 +58,16 @@ class Customer {
     }    
   }
 }
+let pizzaOrder = [];
 
-
+function getFinalTotal() {
+  const pizzaTotal = pizzaOrder.reduce((prev, cur) => prev + cur.cost, 0);
+  $(".pizza-order").append('Your Total is: $' + pizzaTotal);
+}
 
 //front end logic
 
 let newCustomer;
-let pizzaOrder = [];
 
 $(document).ready(function() {
   //returns dropdown menus to default option
@@ -113,9 +113,9 @@ $(document).ready(function() {
     $(".pizza-order").show();
     $(".order-settings").show();
   })
-  $("button#finalize-order").click(function(event) {
+  $("button.finalize-order").click(function(event) {
     event.preventDefault();
-    pizza1.getFinalTotal();
+    getFinalTotal();
   })
 })
 
