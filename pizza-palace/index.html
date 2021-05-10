@@ -43,20 +43,30 @@
         <button id="get-started">Create Your Pizza!</button>
       </section>
       <div class="pizza-maker">
-        <section class="card">
-          <h6 class="card-header">1. Size & Crust</h6>
+          <!-- <h6 class="card-header">1. Size & Crust</h6>
           <form id="size">
-            <input type="radio" name="size" value="small"> Small
-            <input type="radio" name="size" value="medium"> Medium
-            <input type="radio" name="size" value="large"> large
-            <input type="radio" name="size" value="x-large"> X-large
-          </form>
-        </section>
-        <section class="card">
+            <input type="radio" name="size" value="small" class="size"> Small
+            <input type="radio" name="size" value="medium" class="size"> Medium
+            <input type="radio" name="size" value="large" class="size"> large
+            <input type="radio" name="size" value="x-large" class="size"> X-large
+          </form> -->
+          <select id="size">
+            <option type="radio" value="small" name="size">Small</option>
+            <option type="radio" value="medium" name="size">Medium</option>
+            <option type="radio" value="large" name="size">Large</option>
+            <option type="radio" value="x-large" name="size">X-large</option>
+          </select>
+          <select id="crust">
+            <option type="radio" value="brooklyn-style" name="crust">Brooklyn Style</option>
+            <option type="radio" value="hand-tossed" name="crust">Hand-tossed</option>
+          </select>
+          <button id="submit-order">Add To Order</button>
+
+        <!-- <section class="card">
           <form id="crust">
           </form>
-        </section>
-        <section class="card">
+        </section> -->
+        <!-- <section class="card">
           <h6 class="card-header">2. Cheese</h6>
           <form id="cheese">
           </form>
@@ -74,8 +84,7 @@
           <h6>Choose Non-meats</h6>
           <form id="veg">
           </form>
-          <button id="submit-order">Add To Order</button>
-        </section>
+        </section> -->
       </div>
       <br>
       <div class="confirm-order">
