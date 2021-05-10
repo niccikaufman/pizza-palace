@@ -1,10 +1,10 @@
 //back end logic
-let size = ["small", "medium", "large", "x-large"];
-let crust = ["brooklyn style", "hand-tossed"];
-let cheese = ["light", "normal", "extra", "double"];
-let sauce = ["tomato", "marinara", "bbq", "garlic parmesan", "alfredo", "ranch"];
-let meat = ["ham", "beef", "salami", "pepperoni", "italian sausage", "bacon"];
-let veg = ["diced tomato", "black olive", "mushroom", "onion", "pineapple", "jalapeno pepper", "spinach"];
+// let size = ["small", "medium", "large", "x-large"];
+// let crust = ["brooklyn style", "hand-tossed"];
+// let cheese = ["light", "normal", "extra", "double"];
+// let sauce = ["tomato", "marinara", "bbq", "garlic parmesan", "alfredo", "ranch"];
+// let meat = ["ham", "beef", "salami", "pepperoni", "italian sausage", "bacon"];
+// let veg = ["diced tomato", "black olive", "mushroom", "onion", "pineapple", "jalapeno pepper", "spinach"];
 let cost = 0;
 
 class Pizza {
@@ -27,6 +27,16 @@ class Pizza {
     } else if (this.size === "x-large") {
       this.cost += 17;
     }
+    console.log(`size price is ${this.cost}`)
+    if (this.cheese === "light") {
+      this.cost -= 1;
+    } else if (this.cheese === "extra") {
+      this.cost += 2;
+    } else if (this.cheese === "double") {
+      this.cost += 4;
+    }
+    console.log(`cheese and size price is ${this.cost}`)
+
   }
 }
 
@@ -55,40 +65,40 @@ let newCustomer, newPizza;
 
 //populate dropdown menus with pizza option arrays
 $(document).ready(function() {
-  for (i = 0; i < size.length; i++) {
-    let data = `<input type="radio" name="size" value="${size[i]}" class="size">` + size[i];
-    $("#size").append(data);
-  }
-  for (i = 0; i < crust.length; i++) {
-    let data = `<input type="radio" name="crust" value="${crust[i]}" class="crust">` + crust[i]
-    $("#crust").append(data);
-  }
-  for (i = 0; i < cheese.length; i++) {
-    let data = `<input type="radio" name="cheese" value="${cheese[i]}" class="cheese">` + cheese[i]
-    $("#cheese").append(data);
-  }
-  for (i = 0; i < sauce.length; i++) {
-    let data = `<input type="radio" name="sauce" value="${sauce[i]}" class="sauce">` + sauce[i]
-    $("#sauce").append(data);
-  }
-  for (i = 0; i < meat.length; i++) {
-    let data = `<input type="radio" name="meat" value="${meat[i]}" class="meat">`+ meat[i]
-    $("#meat").append(data);
-  }
-  for (i = 0; i < veg.length; i++) {
-    let data = `<input type="radio" name="veg" value="${veg[i]}" class="veg">` + veg[i]
-    $("#veg").append(data);
-  }
+  // for (i = 0; i < size.length; i++) {
+  //   let data = `<input type="radio" name="size" value="${size[i]}" class="size">` + size[i];
+  //   $("#size").append(data);
+  // }
+  // for (i = 0; i < crust.length; i++) {
+  //   let data = `<input type="radio" name="crust" value="${crust[i]}" class="crust">` + crust[i]
+  //   $("#crust").append(data);
+  // }
+  // for (i = 0; i < cheese.length; i++) {
+  //   let data = `<input type="radio" name="cheese" value="${cheese[i]}" class="cheese">` + cheese[i]
+  //   $("#cheese").append(data);
+  // }
+  // for (i = 0; i < sauce.length; i++) {
+  //   let data = `<input type="radio" name="sauce" value="${sauce[i]}" class="sauce">` + sauce[i]
+  //   $("#sauce").append(data);
+  // }
+  // for (i = 0; i < meat.length; i++) {
+  //   let data = `<input type="radio" name="meat" value="${meat[i]}" class="meat">`+ meat[i]
+  //   $("#meat").append(data);
+  // }
+  // for (i = 0; i < veg.length; i++) {
+  //   let data = `<input type="radio" name="veg" value="${veg[i]}" class="veg">` + veg[i]
+  //   $("#veg").append(data);
+  // }
 
   //returns dropdown menus to default option
-  function clearDropdowns() {
-    $('#size option:eq(0)').attr('selected','selected');
-    $('#crust option:eq(0)').attr('selected','selected'); 
-    $('#cheese option:eq(0)').attr('selected','selected'); 
-    $('#sauce option:eq(0)').attr('selected','selected'); 
-    $('#meat option:eq(0)').attr('selected','selected'); 
-    $('#veg option:eq(0)').attr('selected','selected'); 
-  }
+  // function clearDropdowns() {
+  //   $('#size option:eq(0)').attr('selected','selected');
+  //   $('#crust option:eq(0)').attr('selected','selected'); 
+  //   $('#cheese option:eq(0)').attr('selected','selected'); 
+  //   $('#sauce option:eq(0)').attr('selected','selected'); 
+  //   $('#meat option:eq(0)').attr('selected','selected'); 
+  //   $('#veg option:eq(0)').attr('selected','selected'); 
+  // }
 
   //after contact info is filled out
   $("button#get-started").click(function(event) {
@@ -108,7 +118,7 @@ $(document).ready(function() {
   //after pizza order is made
   $("button#submit-order").click(function(event) {
     event.preventDefault();
-    let sizeSelect = $("input.size").val();
+    let sizeSelect = $("#size").val();
     let crustSelect = $("input.crust").val();
     let cheeseSelect = $("input.cheese").val();
     let sauceSelect = $("input.sauce").val();
@@ -116,8 +126,7 @@ $(document).ready(function() {
     let vegSelect = $("input.veg").val();
     let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
     console.log(pizza1);
-    pizza1.determinePrice();
-    clearDropdowns();
+    // pizza1.determinePrice();
     $(".confirm-order").show();
     $(".order-settings").show();
   })
