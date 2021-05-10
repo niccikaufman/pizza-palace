@@ -65,7 +65,10 @@ let newCustomer, newPizza;
 
 //populate dropdown menus with pizza option arrays
 $(document).ready(function() {
-  // for (i = 0; i < size.length; i++) {
+  $(".dropdown").click(function(){
+    $(".dropdown-menu").toggle();
+    });
+    // for (i = 0; i < size.length; i++) {
   //   let data = `<input type="radio" name="size" value="${size[i]}" class="size">` + size[i];
   //   $("#size").append(data);
   // }
@@ -118,8 +121,8 @@ $(document).ready(function() {
   //after pizza order is made
   $("button#submit-order").click(function(event) {
     event.preventDefault();
-    let sizeSelect = $("#size").val();
-    let crustSelect = $("input.crust").val();
+    let sizeSelect = $("#size :selected").val();
+    let crustSelect = $("#crust :selected").val();
     let cheeseSelect = $("input.cheese").val();
     let sauceSelect = $("input.sauce").val();
     let meatSelect = $("input.meat").val();
