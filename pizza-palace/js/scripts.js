@@ -35,13 +35,12 @@ class Pizza {
       this.cost += 4;
     }
   }
-  showPizza() {
-    for (const property in this) {
-      let data = '<li> ' + this[property] + "</li>"
-      $(".confirm-order").append(data);
-    }    
-  }
+  finalCost() {
+    let data = 'Your Total is: $' + this.cost;
+    $(".pizza-order").append(data);
+  }   
 }
+
 
 
 class Customer {
@@ -66,12 +65,8 @@ class Customer {
 
 let newCustomer, newPizza;
 
-//populate dropdown menus with pizza option arrays
 $(document).ready(function() {
-  $(".dropdown").click(function(){
-    $(".dropdown-menu").toggle();
-    });
-  
+
   //returns dropdown menus to default option
   function clearOptions() {
     $('#size option:eq(0)').attr('selected','selected');
@@ -105,10 +100,10 @@ $(document).ready(function() {
     let sauceSelect = $("#sauce :selected").text();
     let meatSelect = $("#meat :selected").text();
     let vegSelect = $("#veg :selected").text();
-    let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
+    let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect, cost);
     clearOptions();
     pizza1.determinePrice();
-    pizza1.showPizza();
+    pizza1.finalCost();
     $(".confirm-order").show();
     $(".order-settings").show();
   })
