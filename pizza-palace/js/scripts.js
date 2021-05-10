@@ -27,7 +27,6 @@ class Pizza {
     } else if (this.size === "X-large") {
       this.cost += 17;
     }
-    console.log(`size price is ${this.cost}`)
     if (this.cheese === "Light") {
       this.cost -= 1;
     } else if (this.cheese === "Extra") {
@@ -35,11 +34,10 @@ class Pizza {
     } else if (this.cheese === "Double") {
       this.cost += 4;
     }
-    console.log(`cheese and size price is ${this.cost}`)
   }
   showPizza() {
     for (const property in this) {
-      let data = '<li class="pizza-order"> ' + this[property] + "</li>"
+      let data = '<li> ' + this[property] + "</li>"
       $(".confirm-order").append(data);
     }    
   }
@@ -96,7 +94,6 @@ $(document).ready(function() {
     $(".pizza-maker").show();
     $("form#contact").hide();
     newCustomer.showContact();
-    console.log(newCustomer);
   }) 
 
   //after pizza order is made
@@ -109,7 +106,6 @@ $(document).ready(function() {
     let meatSelect = $("#meat :selected").text();
     let vegSelect = $("#veg :selected").text();
     let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect,cost);
-    console.log(pizza1);
     clearOptions();
     pizza1.determinePrice();
     pizza1.showPizza();
