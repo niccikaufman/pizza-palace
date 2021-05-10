@@ -46,6 +46,7 @@
         <button id="get-started">Create Your Pizza!</button>
       </section>
       <div class="pizza-maker">
+        <section class="card">
           <p class="order-card-header card-header">1. Size and Crust</p>
           <select id="size">
             <option value="">Select the Size</option>
@@ -59,6 +60,8 @@
             <option type="radio" value="brooklyn-style" name="crust">Brooklyn Style</option>
             <option type="radio" value="hand-tossed" name="crust">Hand-tossed</option>
           </select>
+        </section>
+        <section class="card">
           <p class="order-card-header card-header">2. Cheese</p>
           <select id="cheese">
             <option value="">Select the Cheese</option>
@@ -67,6 +70,8 @@
             <option type="radio" value="extra" name="cheese">Extra</option>
             <option type="radio" value="double" name="cheese">Double</option>
           </select>
+        </section>
+        <section class="card">
           <p class="order-card-header card-header">3. Sauce</p>
           <select id="sauce">
             <option value="">Select the Sauce</option>
@@ -77,6 +82,8 @@
             <option type="radio" value="alfredo" name="sauce">Alfredo</option>
             <option type="radio" value="ranch" name="sauce">Ranch</option>
           </select>
+        </section>
+        <section class="card">
           <p class="order-card-header card-header">4. Toppings</p>
           <select id="meat">
             <option value="">Select the Meat</option>
@@ -97,35 +104,14 @@
             <option type="checkbox" value="jalapeno" name="veg">Jalapeno</option>
             <option type="checkbox" value="spinach" name="veg">Spinach</option>
           </select>
-          <button id="submit-order">Add To Order</button>
-        <!-- <section class="card">
-          <form id="crust">
-          </form>
-        </section> -->
-        <!-- <section class="card">
-          <h6 class="card-header">2. Cheese</h6>
-          <form id="cheese">
-          </form>
         </section>
-        <section class="card">
-          <h6 class="card-header">3. Sauce</h6>
-          <form id="sauce">
-          </form>
-        </section>
-        <section class="card">
-          <h6 class="card-header">4. Toppings</h6>
-          <h6>Choose Meats</h6>
-          <form id="meat">
-          </form>
-          <h6>Choose Non-meats</h6>
-          <form id="veg">
-          </form>
-        </section> -->
+        <br>
+        <button id="submit-order">Add To Order</button>
       </div>
       <br>
       <div class="confirm-order">
         <h6>Does everything look correct?</h6>
-        <p class="pizza-order"></p>
+        <section class="pizza-order"></section>
       </div>
     </div>
   </body>
