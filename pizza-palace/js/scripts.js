@@ -109,8 +109,8 @@ $(document).ready(function() {
     let name = $("#name").val();
     let phoneNumber = $("#phone").val();
     let email = $("#email").val();
-    let orderOption = $("input.service-method").val();
-    let orderTiming = $("input.order-timing").val();
+    let orderOption = $("#service-method :selected").val();
+    let orderTiming = $("#order-timing :selected").val();
     let newCustomer = new Customer(name,phoneNumber,email,orderOption,orderTiming);
     $(".pizza-maker").show();
     $("form#contact").hide();
