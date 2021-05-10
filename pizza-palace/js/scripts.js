@@ -36,7 +36,12 @@ class Pizza {
       this.cost += 4;
     }
     console.log(`cheese and size price is ${this.cost}`)
-
+  }
+  showPizza() {
+    for (const property in this) {
+      let data = '<li class="pizza-order"> ' + this[property] + "</li>"
+      $(".confirm-order").append(data);
+    }    
   }
 }
 
@@ -68,31 +73,7 @@ $(document).ready(function() {
   $(".dropdown").click(function(){
     $(".dropdown-menu").toggle();
     });
-    // for (i = 0; i < size.length; i++) {
-  //   let data = `<input type="radio" name="size" value="${size[i]}" class="size">` + size[i];
-  //   $("#size").append(data);
-  // }
-  // for (i = 0; i < crust.length; i++) {
-  //   let data = `<input type="radio" name="crust" value="${crust[i]}" class="crust">` + crust[i]
-  //   $("#crust").append(data);
-  // }
-  // for (i = 0; i < cheese.length; i++) {
-  //   let data = `<input type="radio" name="cheese" value="${cheese[i]}" class="cheese">` + cheese[i]
-  //   $("#cheese").append(data);
-  // }
-  // for (i = 0; i < sauce.length; i++) {
-  //   let data = `<input type="radio" name="sauce" value="${sauce[i]}" class="sauce">` + sauce[i]
-  //   $("#sauce").append(data);
-  // }
-  // for (i = 0; i < meat.length; i++) {
-  //   let data = `<input type="radio" name="meat" value="${meat[i]}" class="meat">`+ meat[i]
-  //   $("#meat").append(data);
-  // }
-  // for (i = 0; i < veg.length; i++) {
-  //   let data = `<input type="radio" name="veg" value="${veg[i]}" class="veg">` + veg[i]
-  //   $("#veg").append(data);
-  // }
-
+  
   //returns dropdown menus to default option
   function clearOptions() {
     $('#size option:eq(0)').attr('selected','selected');
@@ -131,6 +112,7 @@ $(document).ready(function() {
     console.log(pizza1);
     clearOptions();
     pizza1.determinePrice();
+    pizza1.showPizza();
     $(".confirm-order").show();
     $(".order-settings").show();
   })
