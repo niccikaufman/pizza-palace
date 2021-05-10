@@ -35,10 +35,13 @@ class Pizza {
       this.cost += 4;
     }
   }
-  finalCost() {
-    let data = 'Your Total is: $' + this.cost;
+  getSubtotal() {
+    let data = 'Your Subtotal is: $' + this.cost + '<br>';
     $(".pizza-order").append(data);
   }   
+  getFinalTotal() {
+
+  }
 }
 
 
@@ -63,10 +66,10 @@ class Customer {
 
 //front end logic
 
-let newCustomer, newPizza;
+let newCustomer;
+let pizzaOrder = [];
 
 $(document).ready(function() {
-
   //returns dropdown menus to default option
   function clearOptions() {
     $('#size option:eq(0)').attr('selected','selected');
@@ -101,12 +104,18 @@ $(document).ready(function() {
     let meatSelect = $("#meat :selected").text();
     let vegSelect = $("#veg :selected").text();
     let pizza1 = new Pizza(sizeSelect,crustSelect,cheeseSelect,sauceSelect,meatSelect,vegSelect, cost);
+    pizzaOrder.push(pizza1);
+    console.log(pizzaOrder);
     clearOptions();
     pizza1.determinePrice();
-    pizza1.finalCost();
+    pizza1.getSubtotal();
     $(".pizza-maker").hide();
     $(".pizza-order").show();
     $(".order-settings").show();
+  })
+  $("button#finalize-order").click(function(event) {
+    event.preventDefault();
+    pizza1.getFinalTotal();
   })
 })
 
